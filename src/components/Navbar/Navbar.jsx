@@ -1,48 +1,54 @@
 /* eslint-disable no-unused-vars */
 import { AnimatePresence, motion } from "framer-motion";
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import { Link } from "react-router-dom";
 import styles from "./Navbar.module.css";
 
+const links = [
+  { label: "Home", href: "/#home" },
+  { label: "About", href: "/#about" },
+  { label: "Skills", href: "/#skills" },
+  { label: "Projects", href: "#projects" },
+];
+
 function Navbar() {
   const [isOpen, setIsOpen] = useState(false);
-  const [scrolled, setScrolled] = useState(false);
-
-  useEffect(() => {
-    const onScroll = () => setScrolled(window.scrollY > 50);
-    window.addEventListener("scroll", onScroll);
-    return () => window.removeEventListener("scroll", onScroll);
-  }, []);
-
   const close = () => setIsOpen(false);
 
-  const links = [
-    { label: "Home", href: "/#home" },
-    { label: "About", href: "/#about" },
-    { label: "Skills", href: "/#skills" },
-    { label: "Projects", href: "/projects" },
-  ];
+  const renderLink = (link, extraClass = "") => {
+    const el =
+      link.href.startsWith("/") && !link.href.includes("#") ?
+        <Link
+          to={link.href}
+          className={extraClass}
+          onClick={close}>
+          {link.label}
+        </Link>
+      : <a
+          href={link.href}
+          className={extraClass}
+          onClick={close}>
+          {link.label}
+        </a>;
+    return el;
+  };
 
   return (
     <>
-      <nav className={`${styles.nav} ${scrolled ? styles.scrolled : ""}`}>
+      <nav className={styles.nav}>
         <div className={styles.navInner}>
           <Link
             to='/'
             className={styles.logo}>
             <img
-              src='src\assets\images\logo.png'
+              src='src/assets/images/logo.png'
               alt='Logo'
             />
           </Link>
 
           <ul className={styles.navLinks}>
             {links.map((link) => (
-              <li key={link.label}>
-                {link.href.startsWith("/") && !link.href.includes("#") ?
-                  <Link to={link.href}>{link.label}</Link>
-                : <a href={link.href}>{link.label}</a>}
-              </li>
+              <li key={link.label}>{renderLink(link)}</li>
             ))}
             <li>
               <a
@@ -82,26 +88,13 @@ function Navbar() {
                 onClick={close}>
                 <i className='fas fa-times' />
               </button>
-              {links.map((link) =>
-                link.href.startsWith("/") && !link.href.includes("#") ?
-                  <Link
-                    key={link.label}
-                    to={link.href}
-                    onClick={close}>
-                    {link.label}
-                  </Link>
-                : <a
-                    key={link.label}
-                    href={link.href}
-                    onClick={close}>
-                    {link.label}
-                  </a>,
-              )}
+              {links.map((link) => renderLink(link))}
+              <div className={styles.mobileDivider} />
               <a
                 href='/#contact'
-                onClick={close}
-                style={{ color: "var(--accent)", fontWeight: 600 }}>
-                Contact
+                className={styles.mobileContactBtn}
+                onClick={close}>
+                <i className='fas fa-paper-plane' /> Get in Touch
               </a>
             </motion.div>
           </>
