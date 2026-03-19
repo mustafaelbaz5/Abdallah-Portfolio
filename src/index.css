@@ -1,4 +1,4 @@
-@import url("https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=Inter:wght@300;400;500;600&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Tajawal:wght@300;400;500;700;800&display=swap");
 @import url("https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css");
 
 * {
@@ -6,17 +6,16 @@
   padding: 0;
   box-sizing: border-box;
 }
-
 :root {
-  --bg: #0a0a0f;
-  --surface: #111118;
-  --surface2: #1a1a2e;
-  --accent: #4f8ef7;
-  --accent-glow: rgba(79, 142, 247, 0.3);
-  --accent2: #7c3aed;
-  --text: #f0f0ff;
-  --text-muted: #8888aa;
-  --border: rgba(79, 142, 247, 0.15);
+  --bg: #0d0a0a;
+  --surface: #130f0f;
+  --surface2: #1e1414;
+  --accent: #e53935;
+  --accent-glow: rgba(229, 57, 53, 0.3);
+  --accent2: #ff6f00;
+  --text: #fff0f0;
+  --text-muted: #a08888;
+  --border: rgba(229, 57, 53, 0.15);
   --radius: 12px;
 }
 
@@ -25,24 +24,24 @@ html {
 }
 
 body {
-  font-family: "Inter", sans-serif;
+  font-family: "Tajawal", sans-serif;
   background: var(--bg);
   color: var(--text);
   overflow-x: hidden;
   line-height: 1.6;
+}
+
+h1,
+h2,
+h3,
+h4 {
+  font-family: "Tajawal", sans-serif;
 }
 html,
 body {
   overflow-x: hidden;
   max-width: 100%;
 }
-h1,
-h2,
-h3,
-h4 {
-  font-family: "Space Grotesk", sans-serif;
-}
-
 .container {
   max-width: 1200px;
   margin: 0 auto;
@@ -83,4 +82,13 @@ a {
 ::-webkit-scrollbar-thumb {
   background: var(--accent);
   border-radius: 3px;
+}
+@keyframes blink {
+  0%,
+  100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0;
+  }
 }
