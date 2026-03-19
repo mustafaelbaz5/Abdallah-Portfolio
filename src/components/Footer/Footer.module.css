@@ -1,0 +1,74 @@
+.footer {
+  background: var(--surface);
+  border-top: 1px solid var(--border);
+  padding: 3rem 0 1.5rem;
+}
+
+.footerContent {
+  display: flex;
+  justify-content: space-between;
+  gap: 3rem;
+  flex-wrap: wrap;
+  margin-bottom: 2rem;
+}
+
+.section h3 {
+  font-size: 1rem;
+  font-weight: 600;
+  color: var(--text);
+  margin-bottom: 1.2rem;
+}
+
+.contactItem {
+  display: flex;
+  align-items: center;
+  gap: 0.8rem;
+  color: var(--text-muted);
+  margin-bottom: 0.8rem;
+  font-size: 0.9rem;
+}
+
+.contactItem i {
+  color: var(--accent);
+}
+
+.socialItem {
+  display: flex;
+  align-items: center;
+  gap: 0.8rem;
+  color: var(--text-muted);
+  margin-bottom: 0.8rem;
+  font-size: 0.9rem;
+  transition: color 0.3s ease;
+}
+
+.socialItem i {
+  color: var(--accent);
+}
+.socialItem:hover {
+  color: var(--accent);
+}
+
+.bottom {
+  border-top: 1px solid var(--border);
+  padding-top: 1.5rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 1rem;
+}
+
+.bottom p {
+  color: var(--text-muted);
+  font-size: 0.85rem;
+}
+
+.bottom a {
+  color: var(--accent);
+  transition: opacity 0.3s ease;
+}
+
+.bottom a:hover {
+  opacity: 0.8;
+}
