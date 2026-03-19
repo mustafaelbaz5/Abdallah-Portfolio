@@ -15,14 +15,22 @@ function Projects() {
       id='projects'
       className={styles.projects}
       ref={ref}>
+      <div className={styles.bgGrid} />
+
       <div className='container'>
         <motion.div
           className={styles.header}
           initial={{ opacity: 0, y: 30 }}
           animate={inView ? { opacity: 1, y: 0 } : {}}
           transition={{ duration: 0.6 }}>
-          <h2 className='section-title'>Featured Projects</h2>
-          <p>A selection of my recent design work</p>
+          <div className={styles.headerBadge}>
+            <i className='fas fa-layer-group' />
+            My Work
+          </div>
+          <h2>
+            Featured <span>Projects</span>
+          </h2>
+          <p>A selection of my recent design work — hover to explore</p>
         </motion.div>
       </div>
 
@@ -37,13 +45,18 @@ function Projects() {
         </div>
       </div>
 
-      <div className={styles.viewAll}>
+      <motion.div
+        className={styles.viewAll}
+        initial={{ opacity: 0, y: 20 }}
+        animate={inView ? { opacity: 1, y: 0 } : {}}
+        transition={{ duration: 0.5, delay: 0.4 }}>
         <Link
           to='/projects'
           className={styles.viewAllBtn}>
-          View All Projects <i className='fas fa-arrow-right' />
+          <span>View All Projects</span>
+          <i className='fas fa-arrow-right' />
         </Link>
-      </div>
+      </motion.div>
     </section>
   );
 }
